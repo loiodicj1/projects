@@ -1,0 +1,85 @@
+<!--for assignment due on 9/12-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Drop Down Menu</title>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: grey;
+        }
+        nav {
+            background-color: cornflowerblue;
+            display: flex;
+            flex-direction: row;
+        }
+        nav > div:hover {
+            position: relative;
+        }
+        button {
+            background-color: cornflowerblue;
+            border: none;
+            padding: 10px 20px;
+            width: 120px;
+            font-size: small;
+        }
+        button:hover {
+            background-color: beige;
+        }
+        nav > div > div {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
+        }
+        nav > div:hover > div {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <button>File</button>
+            <div>
+                <button>New</button>
+                <button>Open</button>
+                <button>Save</button>
+                <button>Print</button>
+                <button>Close</button>
+            </div>
+        </div>
+        <div>
+            <button>Edit</button>
+            <div>
+                <button>Undo</button>
+                <button>Redo</button>
+                <button>Cut</button>
+                <button>Copy</button>
+                <button>Paste</button>
+                <button>Delete</button>
+                <button>Select All</button>
+            </div>
+        </div>
+        <div>
+            <button>View</button>
+            <div>
+                <button>Zoom In</button>
+                <button>Zoom Out</button>
+                <button>Actual Size</button>
+                <button>Fit Page</button>
+                <button>Fit Width</button>
+                <button>Fit Height</button>
+                <button>Rotate Left</button>
+                <button>Rotate Right</button>
+                <button>Full Screen</button>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
