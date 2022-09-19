@@ -16,12 +16,17 @@
                 <div class="delete"></div>
                 abc
             </div>
-        </div>
 
+            <div class="notification is-danger">
+                <div class="delete"></div>
+                abc
+            </div>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        /*
         $(".delete").click(function(){
             const o = $(".notification");
             o.fadeOut(100, function() {o.remove();})
@@ -35,6 +40,12 @@
         $(".notification").mouseleave(function(){
             const o = $(".notification");
             o.toggleClass("is-light");
+        })
+        */
+
+        $(".delete").click(function(){
+            const o = $(event.target);
+            o.parent().fadeOut();
         })
     </script>
 </body>
