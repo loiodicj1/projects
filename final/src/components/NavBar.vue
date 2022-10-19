@@ -11,29 +11,32 @@
           Home
         </router-link>
 
-        <router-link class="navbar-item has-text-white" to="/recent">
-          Recent
-        </router-link>
-
-        <router-link class="navbar-item has-text-white" to="/add">
-          Add
-        </router-link>
-
-        <router-link class="navbar-item has-text-white" to="/edit">
-          Edit
-        </router-link>
-
-        <router-link class="navbar-item has-text-white" to="/friends">
-          Friends
+        <router-link class="navbar-item has-text-white" to="/activity">
+          My Activity
         </router-link>
 
         <router-link class="navbar-item has-text-white" to="/stats">
-          Stats
+          Statistics
         </router-link>
 
-        <router-link class="navbar-item has-text-white" to="/admin">
-          Admin
+        <router-link class="navbar-item has-text-white" to="/friends">
+          Friends Activity
         </router-link>
+
+        <router-link class="navbar-item has-text-white" to="/people">
+          People
+        </router-link>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Admin
+          </a>
+          <div class="navbar-dropdown">
+            <router-link class="navbar-item has-text-dark" to="/users">
+              Users
+            </router-link>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
