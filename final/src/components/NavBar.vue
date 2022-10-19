@@ -11,8 +11,28 @@
           Home
         </router-link>
 
-        <router-link class="navbar-item has-text-white" to="/about">
-          About
+        <router-link class="navbar-item has-text-white" to="/recent">
+          Recent
+        </router-link>
+
+        <router-link class="navbar-item has-text-white" to="/add">
+          Add
+        </router-link>
+
+        <router-link class="navbar-item has-text-white" to="/edit">
+          Edit
+        </router-link>
+
+        <router-link class="navbar-item has-text-white" to="/friends">
+          Friends
+        </router-link>
+
+        <router-link class="navbar-item has-text-white" to="/stats">
+          Stats
+        </router-link>
+
+        <router-link class="navbar-item has-text-white" to="/admin">
+          Admin
         </router-link>
       </div>
     </div>

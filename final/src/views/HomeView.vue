@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import WIP from "../components/WIP.vue"
 
 </script>
 
 <template>
   <main>
-    <h1>this is home view</h1>
+      <WIP/>
   </main>
 </template>
