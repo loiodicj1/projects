@@ -19,7 +19,7 @@
 		<br>
 		<article class="message">
 			<div class="message-header">
-				<p>New exercise</p>
+				<p>New user</p>
 			</div>
 			<div class="message-body">
 				<div class="field">
@@ -48,7 +48,7 @@
 						<button class="button is-dark" @click="
 							makeNewUser();
 							router.push('/users')
-						">Submit</button>
+						">Create</button>
 					</div>
 					<div class="control">
 						<button class="button is-light" @click="router.push('/users')">Cancel</button>

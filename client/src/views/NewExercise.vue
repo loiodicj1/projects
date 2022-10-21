@@ -61,7 +61,7 @@
 						<button class="button is-dark" @click="
 							makeNewWorkout();
 							router.push('/activity')
-						">Submit</button>
+						">Log</button>
 					</div>
 					<div class="control">
 						<button class="button is-light" @click="router.push('/activity')">Cancel</button>

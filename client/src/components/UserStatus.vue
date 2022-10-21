@@ -16,7 +16,7 @@
 				</div>
 				<div v-if="session.user == null" class="dropdown-menu" id="dropdown-menu3" role="menu" v-show="userListDropDownActive">
 					<div class="dropdown-content">
-						<div v-for="(user, i) in session.userlist"> <!--programmatically create list of users-->
+						<div v-for="user in session.userlist"> <!--programmatically create list of users-->
 							<a href="#" class="dropdown-item" @click="userListDropDownActive = !userListDropDownActive; login(user.name)">
 								{{user.name}}
 							</a>

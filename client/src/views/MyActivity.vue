@@ -9,7 +9,7 @@
 		<button class="button" @click="router.push('/newexercise')">
 			<span>Log new exercise</span>
 		</button>
-		<div v-for="(workout, i) in session.user?.workouts"> <!--programmatically create list of workouts-->
+		<div v-for="workout in session.user?.workouts"> <!--programmatically create list of workouts-->
 			<article class="message">
 				<div class="message-header">
 					{{workout.month}}/{{workout.day}}/{{workout.year}}

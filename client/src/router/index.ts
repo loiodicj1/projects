@@ -9,6 +9,7 @@ import FriendsActivity from '../views/FriendsActivity.vue'
 import NewExercise from '../views/NewExercise.vue'
 import Users from '../views/Users.vue'
 import NewUser from '../views/NewUser.vue'
+import Stats from '../views/Stats.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -57,6 +58,11 @@ const router = createRouter({
       path: '/newuser',
       name: 'newuser',
       component: NewUser,
+    },
+    {
+      path: '/stats',
+      name: 'stats',
+      component: Stats,
     },
   ]
 })

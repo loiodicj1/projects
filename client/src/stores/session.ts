@@ -61,7 +61,7 @@ const session = reactive({
     user: null as User | null,
     userlist: [
         new User("Pushup Doer", "pushupzrawesum", false, true),
-        new User("Couch Potato", "television", true, false),
+        new User("Couch Potato", "television", false, false),
         new User("Mr Inshapeman", "imbuff123", true, true),
     ],
 });
