@@ -2,6 +2,7 @@
     import { ref } from 'vue';
     import { RouterLink } from 'vue-router';
     import UserStatus from './UserStatus.vue';
+    import session from '../stores/session'
 
 </script>
 
@@ -13,24 +14,20 @@
           Home
         </router-link>
 
-        <router-link class="navbar-item has-text-white" to="/activity">
+        <router-link v-if="session.user != null" class="navbar-item has-text-white" to="/activity">
           My Activity
         </router-link>
 
-        <router-link class="navbar-item has-text-white" to="/stats">
+        <router-link v-if="session.user != null" class="navbar-item has-text-white" to="/stats">
           Statistics
         </router-link>
 
-        <router-link class="navbar-item has-text-white" to="/friends">
+        <router-link v-if="session.user != null" class="navbar-item has-text-white" to="/friends">
           Friends Activity
         </router-link>
 
-        <router-link class="navbar-item has-text-white" to="/people">
-          People
-        </router-link>
-
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
+          <a v-if="session.user?.admin == true" class="navbar-link has-text-warning">
             Admin
           </a>
           <div class="navbar-dropdown">

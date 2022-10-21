@@ -1,25 +1,67 @@
 import router from "@/router";
 import { reactive } from "vue";
 
-export class User {
-    public name?: string;
-    public pass?: string;
-    public picture?: string;
-    public admin?: boolean;
+export class Workout {
+    static names: string[] = [
+        "Pushups", "Crunches", "Burpees", "Squats", "Lunges"
+    ]
+    public name: string;
+    public quantity: number;
+    public month: number;
+    public day: number;
+    public year: number;
 
-    constructor(name: string, pass: string, picture: string, admin: boolean) {
+    constructor(name: string, quantity: number, month: number, day: number, year: number) {
+        this.name = name;
+        this.quantity = quantity
+        this.month = month
+        this.day = day
+        this.year = year
+    }
+}
+
+export class User {
+    public name: string;
+    public pass: string;
+    public admin: boolean;
+    public workouts: Workout[];
+
+    constructor(name: string, pass: string, admin: boolean, randomWorkouts: boolean) {
         this.name = name;
         this.pass = pass;
-        this.picture = picture;
         this.admin = admin;
+        this.workouts = [];
+
+        if (randomWorkouts) {
+            //generate 15 random workouts
+            for (let i = 0; i < 8; i++) {
+                this.workouts.push(new Workout(
+                    Workout.names[Math.floor(Math.random() * Workout.names.length)], //random name
+                    Math.floor((Math.random() * 25)) + 2, //random quantity (avoid 0 and 1 quantity)
+                    Math.floor((Math.random() * 12)) + 1, //random month (avoid 0th month)
+                    Math.floor((Math.random() * 27)) + 1, //random day (avoid 0th day)
+                    2022, //year
+                ));
+            }
+            this.sortWorkouts()
+        }
+    }
+
+    sortWorkouts() {
+        this.workouts?.sort((w0, w1) => {
+            if (w0.month == w1.month)
+                return w1?.day - w0.day;
+        
+            return w1.month - w0.month;
+        })
     }
 }
 
 const session = reactive({
     user: null as User | null,
     userlist: [
-        new User("User", "pass123", "", false),
-        new User("Admin", "superpass123", "", true),
+        new User("Pushup Man", "pushupzrawezum", false, true),
+        new User("Admin", "super123", true, true),
     ],
 });
 
