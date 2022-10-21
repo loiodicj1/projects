@@ -60,8 +60,9 @@ export class User {
 const session = reactive({
     user: null as User | null,
     userlist: [
-        new User("Pushup Man", "pushupzrawezum", false, true),
-        new User("Admin", "super123", true, true),
+        new User("Pushup Doer", "pushupzrawesum", false, true),
+        new User("Couch Potato", "television", true, false),
+        new User("Mr Inshapeman", "imbuff123", true, true),
     ],
 });
 
