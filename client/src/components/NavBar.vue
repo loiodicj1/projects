@@ -1,6 +1,8 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import { RouterLink } from 'vue-router';
+    import UserStatus from './UserStatus.vue';
+
 </script>
 
 <template>
@@ -37,6 +39,10 @@
             </router-link>
           </div>
         </div>
+      </div>
+
+      <div class="navbar-end">
+        <UserStatus/>
       </div>
     </div>
   </nav>

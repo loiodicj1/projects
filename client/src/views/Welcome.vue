@@ -4,13 +4,18 @@ import session from '../stores/session'
 
   if (!session.user)
     router.push("/nouser");
-  else
-    router.push('/welcome')
 </script>
 
 <template>
   <main>
     <br>
-      You should not see this message
+    <article class="message">
+			<div class="message-header">
+				Welcome {{session.user?.name}}
+			</div>
+			<div class="message-body">
+				Heyo!
+			</div>
+		</article>
   </main>
 </template>
