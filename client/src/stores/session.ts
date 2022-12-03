@@ -1,4 +1,5 @@
 import router from "@/router";
+import myFetch from "@/services/myFetch";
 import { reactive } from "vue";
 
 export class Workout {
@@ -44,6 +45,9 @@ export class User {
 }
 
 const session = reactive({
+    loading: 0,
+    error: null as string | null,
+    messages: [] as Message[],
     user: null as User | null,
     userlist: [
         new User("Pushup Doer", "pushupzrawesum", false),
@@ -72,5 +76,30 @@ export function logout() {
     session.user = null;
     router.push('/')
 }
+export function setError(error: string | null) {
+    session.error = error;
+    if(error){
+        session.messages.push({ type: 'danger', text: error});
+    }
+}
+
+export async function api<T>(url: string, data: any = null, method?: string ){
+    session.loading++;
+    setError(null);
+    try {
+        return await myFetch<T>(url, data, method);
+    } catch (error) {
+        setError(error as string);
+    }finally{
+        session.loading--;
+    }
+    return {} as T;
+}
+
+export interface Message {
+    text: string;
+    type: 'danger' | 'warning' | 'success' | 'info';
+}
+
 
 export default session;

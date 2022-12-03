@@ -1,6 +1,11 @@
 <script setup lang="ts">
     import session, { login, logout } from '../stores/session'
-		import { ref } from 'vue';
+		import { reactive, ref } from 'vue';
+    import { getUsers, type User} from '@/stores/users';
+
+    const users = reactive([] as User[])
+    getUsers().then( x=> users.push(...x.users))
+    //getUsers().then( x=> console.log('user: ' + x))
 
 		let userListDropDownActive = ref(false)
 </script>
@@ -16,7 +21,7 @@
 				</div>
 				<div v-if="session.user == null" class="dropdown-menu" id="dropdown-menu3" role="menu" v-show="userListDropDownActive">
 					<div class="dropdown-content">
-						<div v-for="user in session.userlist"> <!--programmatically create list of users-->
+						<div v-for="user in users" :key="user.name"> <!--programmatically create list of users-->
 							<a href="#" class="dropdown-item" @click="userListDropDownActive = !userListDropDownActive; login(user.name)">
 								{{user.name}}
 							</a>

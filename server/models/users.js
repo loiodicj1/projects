@@ -1,20 +1,27 @@
 const {connect} = require('./mongo');
+const dbName = 'webdev'
 const collectionName = 'users'
 
 async function collection() {
     const client = await connect()
-    return client.db('webdev').collection(collectionName)
+    return client.db(dbName).collection(collectionName)
 }
 
 async function dropCollection() {
     const client = await connect()
-    client.db('webdev').dropCollection(collectionName)
+    client.db(dbName).dropCollection(collectionName)
 }
 
 async function getUsers() {
     const db = await collection()
     const data = await db.find().toArray()
     return data
+}
+
+async function getUser(id) {
+    const db = await collection();
+    const user = await db.findOne({_id: id})
+    return user
 }
 
 async function addUser(name, admin) {
@@ -28,10 +35,10 @@ async function addUser(name, admin) {
 
 async function seedUsers() {
     const db = await collection()
-    await db.deleteMany()
-    await addUser("pushup doer", false)
-    await addUser("mr inshapeman", true)
-    await addUser("coach potato", false)
+    db.deleteMany()
+    await addUser("user1", false)
+    await addUser("user2", false)
+    await addUser("user3", true)
 }
 
 module.exports = {
