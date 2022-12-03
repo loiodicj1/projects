@@ -10,7 +10,7 @@
 
 
 	function makeNewUser() {
-		session.userlist.push(new User(name.value, password.value, admin.value, false))
+		session.userlist.push(new User(name.value, password.value, admin.value))
 	}
 </script>
 

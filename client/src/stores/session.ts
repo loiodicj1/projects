@@ -26,25 +26,11 @@ export class User {
     public admin: boolean;
     public workouts: Workout[];
 
-    constructor(name: string, pass: string, admin: boolean, randomWorkouts: boolean) {
+    constructor(name: string, pass: string, admin: boolean) {
         this.name = name;
         this.pass = pass;
         this.admin = admin;
         this.workouts = [];
-
-        if (randomWorkouts) {
-            //generate 15 random workouts
-            for (let i = 0; i < 8; i++) {
-                this.workouts.push(new Workout(
-                    Workout.names[Math.floor(Math.random() * Workout.names.length)], //random name
-                    Math.floor((Math.random() * 25)) + 2, //random quantity (avoid 0 and 1 quantity)
-                    Math.floor((Math.random() * 12)) + 1, //random month (avoid 0th month)
-                    Math.floor((Math.random() * 27)) + 1, //random day (avoid 0th day)
-                    2022, //year
-                ));
-            }
-            this.sortWorkouts()
-        }
     }
 
     sortWorkouts() {
@@ -60,9 +46,9 @@ export class User {
 const session = reactive({
     user: null as User | null,
     userlist: [
-        new User("Pushup Doer", "pushupzrawesum", false, true),
-        new User("Couch Potato", "television", false, false),
-        new User("Mr Inshapeman", "imbuff123", true, true),
+        new User("Pushup Doer", "pushupzrawesum", false),
+        new User("Couch Potato", "television", false),
+        new User("Mr Inshapeman", "imbuff123", true),
     ],
 });
 

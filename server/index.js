@@ -1,8 +1,11 @@
+require("dotenv").config()
 const express = require('express')
 const app = express()
 
 const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
+
+const usersController = require('./models/users.js')
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -15,7 +18,7 @@ app.use('/', express.static('./client/dist'));
 app.use(express.json());
 app
 .get('/', (req, res) => {
-    res.status(200).send('Happy Sweet New Year');
+    res.status(200).send('...');
 })
 .get('/error', (req, res) => {
     sss.PORT();
@@ -31,7 +34,6 @@ app.use((err, req, res, next) => {
         message: err.message ?? 'Something went wrong',
         status: err.httpCode ?? 500
     });
-
 })
 
 app.listen(port, () => {
