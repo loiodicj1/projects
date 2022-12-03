@@ -45,6 +45,7 @@ module.exports = {
     collection
     ,dropCollection
     ,getUsers
+    ,getUser
     ,addUser
     ,seedUsers
 }
