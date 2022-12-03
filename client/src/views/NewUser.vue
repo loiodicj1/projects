@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import router from "@/router";
 	import { ref } from "vue";
-	import session, {User, Workout} from '../stores/session'
+	//import session, {User, Workout} from '../stores/session'
 
 	let name = ref("")
 	let password = ref("")
@@ -10,7 +10,7 @@
 
 
 	function makeNewUser() {
-		session.userlist.push(new User(name.value, password.value, admin.value))
+		//@todo
 	}
 </script>
 
@@ -46,7 +46,7 @@
 				<div class="field is-grouped">
 					<div class="control">
 						<button class="button is-dark" @click="
-							makeNewUser();
+							//makeNewUser();
 							router.push('/users')
 						">Create</button>
 					</div>

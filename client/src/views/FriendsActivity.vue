@@ -5,8 +5,8 @@
 <template>
   <main> 
 		<br>
-    <div v-for="user in session.userlist"> 
-      <div v-if="user.name != session.user?.name" v-for="workout in user?.workouts"> <!--programmatically create list of workouts-->
+    <!-- <div v-for="user in session.userlist"> 
+      <div v-if="user.name != session.user?.name" v-for="workout in user?.workouts">
         <article class="message">
           <div class="message-header">
             {{workout.month}}/{{workout.day}}/{{workout.year}}
@@ -16,6 +16,6 @@
           </div>
         </article>
       </div>
-    </div>
+    </div>-->
   </main>
 </template>

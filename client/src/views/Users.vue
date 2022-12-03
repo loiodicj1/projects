@@ -17,12 +17,11 @@
       </thead>
 
       <tbody>
-        <tr v-for="user in session.userlist">
+<!--         <tr v-for="user in session.userlist">
           <th>{{user.name}}</th>
-          <th>{{user.pass}}</th>
           <th>{{user.admin}}</th>
           <th>{{user.workouts?.length}}</th>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
 

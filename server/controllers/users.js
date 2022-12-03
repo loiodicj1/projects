@@ -9,7 +9,7 @@ app
         .catch(next)
     })
     .get('/:id', (req, res, next) => {
-        users.getUser(+req.params.id)
+        users.getUser(req.params.id)
         .then(user=> {
             if (user) {
                 res.status(200).send(user)

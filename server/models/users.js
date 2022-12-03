@@ -18,9 +18,9 @@ async function getUsers() {
     return data
 }
 
-async function getUser(id) {
+async function getUser(name) {
     const db = await collection();
-    const user = await db.findOne({_id: id})
+    const user = await db.findOne({name: name})
     return user
 }
 

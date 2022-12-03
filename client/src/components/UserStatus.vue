@@ -4,8 +4,7 @@
     import { getUsers, type User} from '@/stores/users';
 
     const users = reactive([] as User[])
-    getUsers().then( x=> users.push(...x.users))
-    //getUsers().then( x=> console.log('user: ' + x))
+    getUsers().then( x=> users.push(...x))
 
 		let userListDropDownActive = ref(false)
 </script>
