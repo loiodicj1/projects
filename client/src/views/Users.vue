@@ -17,7 +17,6 @@
       if (result) {
         if (user == session.user?.name) {
           logout()
-          router.push('/')
         } else {
           updateUsersList()
         }
