@@ -9,8 +9,7 @@
 
   function updateUsersList() {
     users.length = 0;
-    console.log('updating users')
-    getUsers().then( x=> users.push(...x))
+    getUsers().then( arr => users.push(...arr))
   }
 
   updateUsersList();

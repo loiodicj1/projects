@@ -18,6 +18,7 @@ const session = reactive({
 
 export function login(name: string) {
   getUser(name).then(u => session.user = u);
+  
   router.push("/");
 }
 
@@ -35,8 +36,6 @@ export function setError(error: string | null) {
 
 export async function api<T>(url: string, data: any = null, method?: string) {
   session.loading++;
-  console.log('url: ' + url + " data: " + data + " method: " + method)
-  console.log('loading up to: ' + session.loading)
   setError(null);
   try {
     return await myFetch<T>(url, data, method);
@@ -44,7 +43,6 @@ export async function api<T>(url: string, data: any = null, method?: string) {
     setError(error as string);
   } finally {
     session.loading--;
-    console.log('loading down to : ' + session.loading)
 
   }
   return {} as T;

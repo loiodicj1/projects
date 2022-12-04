@@ -7,6 +7,7 @@ export function addWorkout(user : string | undefined, newWorkout : Workout) {
 }
 
 export interface Workout {
+    user?: string;
     name: string;
     quantity: number;
     month: number;

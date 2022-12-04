@@ -14,7 +14,6 @@ export function newUser(name: string, admin: boolean) {
 }
 
 export interface User {
-    id: number
     admin: boolean
     name: string
     workouts: Workout[]
