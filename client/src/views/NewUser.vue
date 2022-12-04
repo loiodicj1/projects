@@ -7,7 +7,7 @@
 	let admin = ref(false as boolean)
 
 	function makeNewUser() {
-		newUser(name.value, admin.value).then(result => router.push('/'))
+		newUser(name.value, admin.value).then(result => {router.push('/users')})
 	}
 </script>
 

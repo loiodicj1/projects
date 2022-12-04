@@ -31,6 +31,10 @@
 <template>
   <main> 
 		<br>
+    <button class="button" @click="updateUsersList()">
+      <i class="fa-solid fa-arrows-rotate"></i>
+		</button>
+    <br>
 		<table class="table is-striped" v-if="(session.loading == 0)">
       <thead>
         <tr>
