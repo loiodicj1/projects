@@ -1,16 +1,13 @@
 <script setup lang="ts">
 	import router from "@/router";
 	import { ref } from "vue";
-	//import session, {User, Workout} from '../stores/session'
+	import { newUser } from "@/stores/users";
 
 	let name = ref("")
-	let password = ref("")
 	let admin = ref(false)
 
-
-
 	function makeNewUser() {
-		//@todo
+		newUser(name.value, admin.value)
 	}
 </script>
 
@@ -30,13 +27,6 @@
 				</div>
 
 				<div class="field">
-					<label class="label">Password</label>
-					<div class="control">
-						<input class="input" type="text" placeholder="Text input" v-model="password">
-					</div>
-				</div>
-
-				<div class="field">
 					<label class="checkbox">
 						<input type="checkbox" v-model="admin">
 						<strong> Admin</strong>
@@ -46,8 +36,8 @@
 				<div class="field is-grouped">
 					<div class="control">
 						<button class="button is-dark" @click="
-							//makeNewUser();
-							router.push('/users')
+							makeNewUser();
+							router.push('/')
 						">Create</button>
 					</div>
 					<div class="control">

@@ -4,7 +4,11 @@
     import { getUsers, type User} from '@/stores/users';
 
     const users = reactive([] as User[])
-    getUsers().then( x=> users.push(...x))
+
+    function updateUsersList() {
+      users.length = 0;
+      getUsers().then( x=> users.push(...x))
+    }
 
 		let userListDropDownActive = ref(false)
 </script>
@@ -14,7 +18,7 @@
 
 			<div class="dropdown is-active is-right">
 				<div class="dropdown-trigger">
-					<button v-if="session.user == null" class="button" aria-haspopup="true" aria-controls="dropdown-menu3" @click="userListDropDownActive = !userListDropDownActive">
+					<button v-if="session.user == null" class="button" aria-haspopup="true" aria-controls="dropdown-menu3" @click="updateUsersList(); userListDropDownActive = !userListDropDownActive">
 						<span>Log in</span>
 					</button>
 				</div>

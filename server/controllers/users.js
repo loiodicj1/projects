@@ -18,6 +18,9 @@ app
             }            
         })
         .catch(next)
+    })
+    .post('/:name/:admin', (req, res, next) => {
+        users.addUser(req.params.name, req.params.admin)
     });
 
 module.exports = app

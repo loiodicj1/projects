@@ -9,6 +9,10 @@ export function getUser(name: string) {
     return api<User>(`users/${name}`)
 }
 
+export function newUser(name: string, admin: boolean) {
+    api<User>(`users/${name}/${admin}`, {}, 'POST')
+}
+
 export interface User {
     id: number
     admin: boolean

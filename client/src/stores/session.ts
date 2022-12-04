@@ -25,6 +25,7 @@ export function logout() {
   session.user = null;
   router.push("/");
 }
+
 export function setError(error: string | null) {
   session.error = error;
   if (error) {
