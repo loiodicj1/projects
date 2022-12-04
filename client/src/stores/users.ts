@@ -10,7 +10,7 @@ export function getUser(name: string) {
 }
 
 export function newUser(name: string, admin: boolean) {
-    api<User>(`users/${name}/${admin}`, {}, 'POST')
+    return api<User>(`users/${name}/${admin}`, {}, 'POST')
 }
 
 export interface User {

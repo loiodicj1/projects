@@ -1,12 +1,11 @@
 <template>
 	<main>
-		<br>
 		<article class="message">
 			<div class="message-header">
-				<p>Website under construction</p>
+				Loading...
 			</div>
 			<div class="message-body">
-				Have patience please and thank you.
+				One moment
 			</div>
 		</article>
 

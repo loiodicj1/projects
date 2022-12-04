@@ -56,9 +56,8 @@ async function addWorkout(user, workoutName, workoutQuantity, workoutMonth, work
 async function seedUsers() {
     const db = await collection()
     db.deleteMany()
-    await addUser("user1", false)
-    await addUser("user2", false)
-    await addUser("user3", true)
+    await addUser("normal", false)
+    await addUser("admin", true)
 }
 
 module.exports = {

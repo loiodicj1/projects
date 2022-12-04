@@ -18,10 +18,6 @@
           My Activity
         </router-link>
 
-        <router-link v-if="session.user != null" class="navbar-item has-text-white" to="/stats">
-          Statistics
-        </router-link>
-
         <router-link v-if="session.user != null" class="navbar-item has-text-white" to="/friends">
           Friends Activity
         </router-link>

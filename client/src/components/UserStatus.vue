@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import session, { login, logout } from '../stores/session'
-		import { reactive, ref } from 'vue';
+	import { reactive, ref } from 'vue';
     import { getUsers, type User} from '@/stores/users';
 
     const users = reactive([] as User[])

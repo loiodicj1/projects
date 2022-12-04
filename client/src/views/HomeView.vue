@@ -2,10 +2,7 @@
 import router from '@/router';
 import session from '../stores/session'
 
-  if (!session.user)
-    router.push("/nouser");
-  else
-    router.push('/welcome')
+  router.push('/welcome')
 </script>
 
 <template>

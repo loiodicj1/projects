@@ -37,7 +37,7 @@
 					<div class="control">
 						<button class="button is-dark" @click="
 							makeNewUser();
-							router.push('/')
+							router.push('/users')
 						">Create</button>
 					</div>
 					<div class="control">
