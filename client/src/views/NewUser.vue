@@ -4,10 +4,10 @@
 	import { newUser } from "@/stores/users";
 
 	let name = ref("")
-	let admin = ref(false)
+	let admin = ref(false as boolean)
 
 	function makeNewUser() {
-		newUser(name.value, admin.value)
+		newUser(name.value, admin.value).then(result => router.push('/'))
 	}
 </script>
 
@@ -37,7 +37,6 @@
 					<div class="control">
 						<button class="button is-dark" @click="
 							makeNewUser();
-							router.push('/users')
 						">Create</button>
 					</div>
 					<div class="control">

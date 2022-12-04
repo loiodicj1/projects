@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import router from "@/router";
-	import session from '../stores/session'
-  import { getUsers, type User } from "@/stores/users";
+	import session, { logout } from '../stores/session'
+  import { getUsers, dropUser, type User } from "@/stores/users";
   import { reactive } from "vue";
   import Loading from '../components/Loading.vue'
 
@@ -10,6 +10,19 @@
   function updateUsersList() {
     users.length = 0;
     getUsers().then( arr => users.push(...arr))
+  }
+
+  function deleteUser(user: string) {
+    dropUser(user).then(result => {
+      if (result) {
+        if (user == session.user?.name) {
+          logout()
+          router.push('/')
+        } else {
+          updateUsersList()
+        }
+      }
+    })
   }
 
   updateUsersList();
@@ -22,16 +35,25 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Admin</th>
           <th>Workouts</th>
+          <th>Admin</th>
         </tr>
       </thead>
 
       <tbody>
         <tr v-for="user in users">
           <th>{{user.name}}</th>
-          <th>{{user.admin}}</th>
           <th>{{user.workouts?.length}}</th>
+          <th> 
+             <div v-if="user.admin">
+                <i class="fas fa-check-square"></i>
+            </div>
+          </th>
+          <th>
+            <button class="button" @click="deleteUser(user.name)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </th>
         </tr>
       </tbody>
     </table>

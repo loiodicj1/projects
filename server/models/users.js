@@ -30,11 +30,41 @@ async function addUser(name, admin) {
         if (user) {
             //dont insert            
         } else {
+            if (admin == "true") {
+                admin = true
+            } else if (admin == "false") {
+                admin = false
+            }
+
             db.insertOne({
                 "name": name
                 ,"admin": admin
                 ,"workouts": []
             })
+        }
+    })
+}
+
+async function checkForAdmin() { //there must be at least one admin!
+    await getUsers().then(arr => {
+        admin = false;
+
+        arr.forEach( user => {
+            if (user.admin)
+                admin = true;
+        } )
+
+        if (!admin) {
+            addUser("admin", true)
+        }
+    })
+}
+
+async function dropUser(name) {
+    const db = await collection()
+    await db.deleteOne({name: name}).then( result => {
+        if (result) {
+            checkForAdmin()
         }
     })
 }
@@ -72,6 +102,7 @@ module.exports = {
     ,getUsers
     ,getUser
     ,addUser
+    ,dropUser
     ,seedUsers
     ,addWorkout
 }

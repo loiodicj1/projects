@@ -24,6 +24,9 @@ app
     })
     .post('/seed', (req, res, next) => {
         res.send(users.seedUsers())
+    })
+    .patch(`/:name`, (req, res, next) => {
+        res.send(users.dropUser(req.params.name))
     });
 
 module.exports = app
