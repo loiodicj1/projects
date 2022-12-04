@@ -33,6 +33,26 @@ async function addUser(name, admin) {
     })
 }
 
+async function addWorkout(user, workoutName, workoutQuantity, workoutMonth, workoutDay, workoutYear) {
+    const db = await collection()
+    await getUser(user).then((userData) => {
+        const workouts = userData.workouts
+        workouts.push({
+            "name": workoutName
+            ,"quantity": workoutQuantity
+            ,"month": workoutMonth
+            ,"day": workoutDay
+            ,"year": workoutYear
+        })
+
+        db.findOneAndReplace({name: user}, {
+            "name": userData.name
+            ,"admin": userData.admin
+            ,"workouts": workouts
+        })
+    })
+}
+
 async function seedUsers() {
     const db = await collection()
     db.deleteMany()
@@ -48,4 +68,5 @@ module.exports = {
     ,getUser
     ,addUser
     ,seedUsers
+    ,addWorkout
 }

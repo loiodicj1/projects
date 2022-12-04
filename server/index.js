@@ -7,6 +7,7 @@ const port = process.env.PORT || 3000;
 
 const usersModel = require('./models/users')
 const usersController= require('./controllers/users')
+const workoutsController= require('./controllers/workouts')
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -19,12 +20,13 @@ app.use('/', express.static('./client/dist'));
 app.use(express.json());
 app
 .get('/', (req, res) => {
-    res.status(200).send('new year');
+    res.status(200).send('...');
 })
 .get('/error', (req, res) => {
     sss.PORT();
 })
 .use('/api/v1/users', usersController)
+.use('/api/v1/workouts', workoutsController)
 
 app.get('*', (req, res) => {
   res.sendFile('index.html', {root: './client/dist'});

@@ -1,4 +1,5 @@
 import {api} from './session';
+import type {Workout} from './workouts';
 
 export function getUsers() {
     return api<User[]>('users')
@@ -14,11 +15,3 @@ export interface User {
     name: string
     workouts: Workout[]
 }
-
-export interface Workout {
-    name: string;
-    quantity: number;
-    month: number;
-    day: number;
-    year: number;
-  }

@@ -1,7 +1,8 @@
 import router from "@/router";
 import myFetch from "@/services/myFetch";
 import { reactive } from "vue";
-import { getUser, type User, type Workout } from "@/stores/users";
+import { getUser, type User} from "@/stores/users";
+import {type Workout} from "@/stores/workouts";
 
 export interface Message {
   text: string;

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 	import router from "@/router";
 	import { ref } from "vue";
-	//import session, {Workout} from '../stores/session'
+	import session from '../stores/session'
+	import {addWorkout} from "../stores/workouts"
 
 	let name = ref("")
 	let quantity = ref(0)
@@ -11,7 +12,16 @@
 
 
 	function makeNewWorkout() {
-		//@todo
+		const newWorkout = {
+			"name": name.value
+			,"quantity": quantity.value
+			,"month": month.value
+			,"day": day.value
+			,"year": 2022
+		}
+
+		session.user?.workouts.push(newWorkout)
+		addWorkout(session.user?.name, newWorkout)
 	}
 </script>
 
@@ -58,7 +68,7 @@
 				<div class="field is-grouped">
 					<div class="control">
 						<button class="button is-dark" @click="
-							//makeNewWorkout();
+							makeNewWorkout();
 							router.push('/activity')
 						">Log</button>
 					</div>
