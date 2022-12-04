@@ -41,6 +41,11 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(port, () => {
-    usersModel.seedUsers()
+    usersModel.getUsers().then(arr => {if (arr.length == 0) {
+        //console.log("empty users, seeding...")
+        usersModel.seedUsers();
+    } else {
+        //console.log("users: " + arr.length)
+    }})
     console.log(`Server running at http://${hostname}:${port}/`);
 });

@@ -13,6 +13,10 @@ export function newUser(name: string, admin: boolean) {
     return api<User>(`users/${name}/${admin}`, {}, 'POST')
 }
 
+export function seedUsers() {
+    return api<User>(`users/seed`, {}, `POST`)
+}
+
 export interface User {
     admin: boolean
     name: string

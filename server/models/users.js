@@ -26,10 +26,16 @@ async function getUser(name) {
 
 async function addUser(name, admin) {
     const db = await collection()
-    await db.insertOne({
-        "name": name
-        ,"admin": admin
-        ,"workouts": []
+    await getUser(name).then((user) => {
+        if (user) {
+            //dont insert            
+        } else {
+            db.insertOne({
+                "name": name
+                ,"admin": admin
+                ,"workouts": []
+            })
+        }
     })
 }
 

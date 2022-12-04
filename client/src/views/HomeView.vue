@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import router from '@/router';
 import session from '../stores/session'
+import { getUsers, seedUsers, type User } from "@/stores/users";
 
-  router.push('/welcome')
+router.push('/welcome')
 </script>
 
 <template>

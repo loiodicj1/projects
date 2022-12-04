@@ -21,6 +21,9 @@ app
     })
     .post('/:name/:admin', (req, res, next) => {
         res.send(users.addUser(req.params.name, req.params.admin))
+    })
+    .post('/seed', (req, res, next) => {
+        res.send(users.seedUsers())
     });
 
 module.exports = app

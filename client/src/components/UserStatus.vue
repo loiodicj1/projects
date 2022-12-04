@@ -1,16 +1,21 @@
 <script setup lang="ts">
     import session, { login, logout } from '../stores/session'
 	import { reactive, ref } from 'vue';
-    import { getUsers, type User} from '@/stores/users';
+    import { getUsers, seedUsers, type User} from '@/stores/users';
 
     const users = reactive([] as User[])
 
     function updateUsersList() {
       users.length = 0;
-      getUsers().then( x=> users.push(...x))
+      getUsers().then( arr => {
+		if (arr.length > 0)
+			users.push(...arr);
+		else
+			seedUsers().then(updateUsersList);
+		})
     }
 
-		let userListDropDownActive = ref(false)
+	let userListDropDownActive = ref(false)
 </script>
 
 <template>

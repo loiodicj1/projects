@@ -2,9 +2,23 @@
 import router from '@/router';
 import session from '../stores/session'
 import Loading from '../components/Loading.vue'
+import { getUsers, seedUsers, type User } from "@/stores/users";
 
-  if (!session.user && session.loading == 0)
-    router.push("/nouser");
+  function checkLogin() {
+    if (!session.user && session.loading == 0)
+        router.push("/nouser");
+  }
+
+  function checkUsers() {
+    getUsers().then(arr => {if (arr.length == 0) {
+      seedUsers().then(checkLogin);
+    } else {
+      checkLogin()
+    }}
+  
+  )}
+
+  checkUsers()
 </script>
 
 <template>
