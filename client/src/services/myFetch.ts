@@ -1,4 +1,5 @@
 // Change to env variable
+
 export const API_ROOT = import.meta.env.API_ROOT;
 
 export default function myFetch<T>(url: string, data: any = null, method?: string ): Promise<T> {
