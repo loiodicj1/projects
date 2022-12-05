@@ -26,7 +26,7 @@
 						<span>Log in</span>
 					</button>
 				</div>
-				<div v-if="session.user == null" class="dropdown-menu" id="dropdown-menu3" role="menu" v-show="userListDropDownActive">
+				<div v-if="(session.loading == 0 && session.user == null)" class="dropdown-menu" id="dropdown-menu3" role="menu" v-show="userListDropDownActive">
 					<div class="dropdown-content">
 						<div v-for="user in users.sort( (u0, u1) => {
 							return u0.name.localeCompare(u1.name)
@@ -34,6 +34,21 @@
 							<a href="#" class="dropdown-item" @click="userListDropDownActive = !userListDropDownActive; login(user.name)">
 								{{user.name}}
 							</a>
+						</div>
+					</div>
+				</div>
+
+				<div v-if="(session.loading > 0 && session.user == null)" class="dropdown-menu" id="dropdown-menu3" role="menu" v-show="userListDropDownActive">
+					<div class="dropdown-content">
+						<div>
+							<span class="icon">
+								<i class="fas fa-loader fa-spin"></i>
+							</span>
+						</div>
+						<div>
+							<span href="#" class="dropdown-item is-warning">
+								Loading
+							</span>
 						</div>
 					</div>
 				</div>
