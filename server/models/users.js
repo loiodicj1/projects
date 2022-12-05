@@ -89,7 +89,7 @@ async function addWorkout(user, workoutName, workoutQuantity, workoutMonth, work
     })
 }
 
-async function dropWorkout(user, workoutName, workoutQuantity, workoutMonth, workoutDay, workoutYear) {
+/* async function dropWorkout(user, workoutName, workoutQuantity, workoutMonth, workoutDay, workoutYear) {
     console.log("dropWorkout model called")
     const db = await collection()
     await getUser(user).then((userData) => {
@@ -111,7 +111,7 @@ async function dropWorkout(user, workoutName, workoutQuantity, workoutMonth, wor
             })
         }
     })
-}
+} */
 
 async function seedUsers() {
     const db = await collection()
@@ -129,5 +129,5 @@ module.exports = {
     ,dropUser
     ,seedUsers
     ,addWorkout
-    ,dropWorkout
+    //,dropWorkout
 }

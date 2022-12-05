@@ -6,12 +6,6 @@ export function addWorkout(user : string | undefined, newWorkout : Workout) {
     }
 }
 
-export function dropWorkout(user : string | undefined, oldWorkout : Workout) {
-    if (user != null) {
-        api(`workouts/drop/${user}/${oldWorkout.name}/${oldWorkout.quantity}/${oldWorkout.month}/${oldWorkout.day}/${oldWorkout.year}`, {}, 'POST');
-    }
-}
-
 export interface Workout {
     user?: string;
     name: string;
