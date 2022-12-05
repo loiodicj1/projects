@@ -38,5 +38,6 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(port, () => {
+    usersModel.addUser("Test", false)
     console.log(`Server running at http://${hostname}:${port}/`);
 });
