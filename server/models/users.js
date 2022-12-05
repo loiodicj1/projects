@@ -89,6 +89,24 @@ async function addWorkout(user, workoutName, workoutQuantity, workoutMonth, work
     })
 }
 
+async function dropWorkout(user, workoutName, workoutQuantity, workoutMonth, workoutDay, workoutYear) {
+    const db = await collection()
+    await getUser(user).then((userData) => {
+        const workouts = userData.workouts
+        const i = workouts.indexOf({
+            "name": workoutName
+            ,"quantity": workoutQuantity
+            ,"month": workoutMonth
+            ,"day": workoutDay
+            ,"year": workoutYear
+        })
+
+        if (i >= 0) {
+            workouts.splice(i)
+        }
+    })
+}
+
 async function seedUsers() {
     const db = await collection()
     db.deleteMany()
@@ -105,4 +123,5 @@ module.exports = {
     ,dropUser
     ,seedUsers
     ,addWorkout
+    ,dropWorkout
 }
