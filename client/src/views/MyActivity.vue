@@ -3,8 +3,10 @@
 	import session from '../stores/session'
 	import {dropWorkout, type Workout} from "../stores/workouts"
 
-	function deleteWorkout(workout) {
-		dropWorkout(session.user?.name, workout as Workout)
+	function deleteWorkout(workout : Workout) {
+		if (session.user) {
+			dropWorkout(session.user.name, workout as Workout)
+		}
 	}
 </script>
 
@@ -22,7 +24,7 @@
 			<article class="message">
 				<div class="message-header">
 					{{workout.month}}/{{workout.day}}/{{workout.year}}
-					<button class="delete" aria-label="delete" @click="deleteWorkout(workout as Workout)"></button>
+					<button class="delete" aria-label="delete" @click="deleteWorkout(workout)"></button>
 				</div>
 				<div class="message-body">
 					You did {{workout.quantity}} {{workout.name.toLowerCase()}}!
