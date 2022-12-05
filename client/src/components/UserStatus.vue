@@ -48,9 +48,11 @@
 	</div>
 
 	<div v-if="(session.loading > 0)">
-		<button class="button is-warning" @click="logout()">               
-			<i class="fa-solid fa-loader">Loading</i>
-		</button>
+		<div class="buttons">
+			<button class="button is-warning" @click="logout()">               
+				<i class="fa-solid fa-loader"></i>
+			</button>
+		</div>
 	</div>
 </template>
 
