@@ -103,6 +103,11 @@ async function dropWorkout(user, workoutName, workoutQuantity, workoutMonth, wor
 
         if (i >= 0) {
             workouts.splice(i)
+            db.findOneAndReplace({name: user}, {
+                "name": userData.name
+                ,"admin": userData.admin
+                ,"workouts": workouts
+            })
         }
     })
 }
