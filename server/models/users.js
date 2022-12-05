@@ -15,7 +15,7 @@ async function dropCollection() {
 async function getUsers() {
     const db = await collection()
     const data = await db.find().toArray()
-    return data
+    return {users: data}
 }
 
 async function getUser(name) {
