@@ -7,10 +7,8 @@ export function addWorkout(user : string | undefined, newWorkout : Workout) {
 }
 
 export function dropWorkout(user : string | undefined, oldWorkout : Workout) {
-    console.log("dropWorkout controller called user: " + user + " workout: " + oldWorkout)
     if (user != null) {
-        console.log("dropWorkout controller called")
-        api(`workouts/drop/${user}/${oldWorkout.name}/${oldWorkout.quantity}/${oldWorkout.month}/${oldWorkout.day}/${oldWorkout.year}`, {}, 'PATCH');
+        api(`workouts/drop/${user}/${oldWorkout.name}/${oldWorkout.quantity}/${oldWorkout.month}/${oldWorkout.day}/${oldWorkout.year}`, {}, 'POST');
     }
 }
 
