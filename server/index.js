@@ -19,11 +19,8 @@ app.use((req, res, next) => {
 app.use('/', express.static('./client/dist'));
 app.use(express.json());
 app
-.get('/', (req, res) => {
-    res.status(200).send('...');
-})
 .get('/error', (req, res) => {
-    sss.PORT();
+    res.status(404).send('error');
 })
 .use('/api/v1/users', usersController)
 .use('/api/v1/workouts', workoutsController)
