@@ -2,7 +2,6 @@ import {api} from './session';
 import type {Workout} from './workouts';
 
 export function getUsers() {
-    console.log("getUsers")
     return api<User[]>('users')
 }
 

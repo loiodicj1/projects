@@ -15,7 +15,6 @@ import { getUsers, seedUsers, type User } from "@/stores/users";
     } else {
       checkLogin()
     }}
-  
   )}
 
   checkUsers()

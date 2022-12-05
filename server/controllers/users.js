@@ -4,9 +4,10 @@ const users = require('../models/users');
 const app = express.Router();
 app 
     .get('/', (req, res, next) => {
-        users.getUsers()
-        .then(x=> res.status(200).send(x))
-        .catch(next)
+        //users.getUsers()
+        //.then(x=> res.status(200).send(x))
+        //.catch(next)
+        res.send(users.getUsers())
     })
     .get('/:id', (req, res, next) => {
         users.getUser(req.params.id)

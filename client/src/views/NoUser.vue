@@ -11,9 +11,6 @@
 			</div>
 			<div class="message-body">
 				You are <strong>not</strong> logged in!
-				<!--
-					<button class="button is-outlined is-small" @click="router.push('/login')"><strong>Log in</strong></button> 
-				-->    
 			</div>
 		</article>
   </main>
