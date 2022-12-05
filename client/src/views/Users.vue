@@ -44,7 +44,9 @@
       </thead>
 
       <tbody>
-        <tr v-for="user in users">
+        <tr v-for="user in users.sort( (u0, u1) => {
+								return u0.name.localeCompare(u1.name)
+							})">
           <th>{{user.name}}</th>
           <th>{{user.workouts?.length}}</th>
           <th> 
