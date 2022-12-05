@@ -11,7 +11,7 @@ export default function myFetch<T>(url: string, data: any = null, method?: strin
         body: data ? JSON.stringify(data) : undefined,
     };
     console.log(options)
-
+    console.log(API_ROOT + " + " + url)
     const p = fetch(API_ROOT + url, options).then( x=>x.json() )
     return p;
 }
