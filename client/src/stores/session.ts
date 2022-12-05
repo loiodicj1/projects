@@ -13,7 +13,11 @@ const session = reactive({
   loading: 0,
   error: null as string | null,
   messages: [] as Message[],
-  user: null as User | null,
+  user: {
+    name: "admin",
+    admin: true,
+    workouts: [],
+  } as User | null,
 });
 
 export function login(name: string) {
