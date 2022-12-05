@@ -45,7 +45,7 @@
 		</a>
 	</div>
 	<div class="buttons" v-if="(session.loading > 0)">
-		<button class="button is-warning is-static">               
+		<button class="button is-warning">               
 			Loading
 		</button>
 	</div>
