@@ -4,6 +4,7 @@ const users = require('../models/users');
 const app = express.Router();
 app 
     .get('/', (req, res, next) => {
+        console.log("reached users controller")
         users.getUsers()
         .then(x=> res.status(200).send(x))
         .catch(next)

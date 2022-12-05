@@ -3,6 +3,7 @@ const dbName = 'webdev'
 const collectionName = 'users'
 
 async function collection() {
+    console.log("reached users model: collection()")
     const client = await connect()
     return client.db(dbName).collection(collectionName)
 }
@@ -13,8 +14,11 @@ async function dropCollection() {
 }
 
 async function getUsers() {
+    console.log("reached users model: getUsers()")
     const db = await collection()
+    console.log("getting data from mongo...")
     const data = await db.find().toArray()
+    console.log("returning data from mongo...")
     return data
 }
 
