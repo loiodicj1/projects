@@ -90,6 +90,7 @@ async function addWorkout(user, workoutName, workoutQuantity, workoutMonth, work
 }
 
 async function dropWorkout(user, workoutName, workoutQuantity, workoutMonth, workoutDay, workoutYear) {
+    console.log("dropWorkout model called")
     const db = await collection()
     await getUser(user).then((userData) => {
         const workouts = userData.workouts
@@ -100,7 +101,7 @@ async function dropWorkout(user, workoutName, workoutQuantity, workoutMonth, wor
             ,"day": workoutDay
             ,"year": workoutYear
         })
-
+        console.log("workout: " + i)
         if (i >= 0) {
             workouts.splice(i)
             db.findOneAndReplace({name: user}, {

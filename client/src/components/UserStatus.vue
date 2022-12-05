@@ -46,7 +46,7 @@
 	</div>
 	<div class="buttons" v-if="(session.loading > 0)">
 		<button class="button is-warning is-static">               
-			<i class="fa-solid fa-loader"></i>
+			Loading
 		</button>
 	</div>
 </template>
