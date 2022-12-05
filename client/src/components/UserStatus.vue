@@ -45,16 +45,9 @@
 		</a>
 	</div>
 	<div class="buttons" v-if="(session.loading > 0)">
-		<a class="button is-danger" @click="logout()">
-			Log out
-		</a>
-	</div>
-	<div v-if="(session.loading > 0)">
-		<div class="buttons">
-			<button class="button is-warning is-static">               
-				<i class="fa-solid fa-loader"></i>
-			</button>
-		</div>
+		<button class="button is-warning is-static">               
+			<i class="fa-solid fa-loader"></i>
+		</button>
 	</div>
 </template>
 
