@@ -41,14 +41,14 @@
 				<div v-if="(session.loading > 0 && session.user == null)" class="dropdown-menu" id="dropdown-menu3" role="menu" v-show="userListDropDownActive">
 					<div class="dropdown-content">
 						<div>
-							<span class="icon">
+							<a class="dropdown-item icon">
 								<i class="fas fa-loader fa-spin"></i>
-							</span>
+							</a>
 						</div>
 						<div>
-							<span href="#" class="dropdown-item is-warning">
+							<a class="dropdown-item is-warning">
 								Loading
-							</span>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -58,11 +58,6 @@
 		<a class="button is-danger" @click="logout()">
 			Log out
 		</a>
-	</div>
-	<div class="buttons" v-if="(session.loading > 0)">
-		<button class="button is-warning">               
-			Loading
-		</button>
 	</div>
 </template>
 
