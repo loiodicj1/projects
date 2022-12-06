@@ -8,6 +8,7 @@ export function addWorkout(user : string | undefined, newWorkout : Workout) {
 
 export function dropWorkout(user : string | undefined, newWorkout : Workout) {
     if (user != null) {
+        console.log('drop workout store: ' + user + ": " + newWorkout)
         api(`workouts/${user}/${newWorkout.name}/${newWorkout.quantity}/${newWorkout.month}/${newWorkout.day}/${newWorkout.year}`, {}, 'DELETE');
     }
 }

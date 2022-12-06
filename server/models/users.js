@@ -70,6 +70,7 @@ async function dropUser(name) {
 }
 
 async function addWorkout(user, workoutName, workoutQuantity, workoutMonth, workoutDay, workoutYear) {
+    console.log("addWorkout model called")
     const db = await collection()
     await getUser(user).then((userData) => {
         const workouts = userData.workouts
