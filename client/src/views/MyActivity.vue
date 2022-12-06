@@ -42,7 +42,9 @@
 			<article class="message">
 				<div class="message-header">
 					{{workout.month}}/{{workout.day}}/{{workout.year}}
- 					<button class="delete" aria-label="delete" @click="deleteWorkout(workout)"></button>				
+ 					<button class="icon" @click="deleteWorkout(workout)">
+						<i class="fas fa-trash"></i>
+					</button>				
 				</div>
 				<div class="message-body">
 					You did {{workout.quantity}} {{workout.name.toLowerCase()}}!
