@@ -1,13 +1,13 @@
 <script setup lang="ts">
 	import router from "@/router";
 	import session from '../stores/session'
-/* 	import {dropWorkout, type Workout} from "../stores/workouts"
+	import {dropWorkout, type Workout} from "../stores/workouts"
 
 	function deleteWorkout(workout : Workout) {
 		if (session.user) {
 			dropWorkout(session.user.name, workout as Workout)
 		}
-	} */
+	}
 </script>
 
 <template>
@@ -24,7 +24,7 @@
 			<article class="message">
 				<div class="message-header">
 					{{workout.month}}/{{workout.day}}/{{workout.year}}
-<!-- 					<button class="delete" aria-label="delete" @click="deleteWorkout(workout)"></button> -->				
+ 					<button class="delete" aria-label="delete" @click="deleteWorkout(workout)"></button>				
 				</div>
 				<div class="message-body">
 					You did {{workout.quantity}} {{workout.name.toLowerCase()}}!
