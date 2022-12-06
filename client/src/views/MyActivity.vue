@@ -1,11 +1,30 @@
 <script setup lang="ts">
 	import router from "@/router";
 	import session from '../stores/session'
-	import {dropWorkout, type Workout} from "../stores/workouts"
+	import {dropWorkoutAtIndex, type Workout} from "../stores/workouts"
 
 	function deleteWorkout(workout : Workout) {
 		if (session.user) {
-			dropWorkout(session.user.name, workout as Workout)
+			const workouts = session.user.workouts
+			let i = -1;
+			let found = false;
+			while (i < workouts.length && !found) {
+				i++;
+				const curr = workouts[i]
+				if (curr.name == workout.name &&
+					curr.quantity == workout.quantity &&
+					curr.month == workout.month &&
+					curr.day == workout.day &&
+					curr.year == workout.year) {
+
+					found = true;
+				}
+			}
+			console.log('found: ' + found + " i: "+ i)
+			if (found) {
+				session.user.workouts.splice(i)
+				dropWorkoutAtIndex(session.user.name, i)
+			}
 		}
 	}
 </script>

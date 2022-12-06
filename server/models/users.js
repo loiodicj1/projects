@@ -70,7 +70,6 @@ async function dropUser(name) {
 }
 
 async function addWorkout(user, workoutName, workoutQuantity, workoutMonth, workoutDay, workoutYear) {
-    console.log("addWorkout model called")
     const db = await collection()
     await getUser(user).then((userData) => {
         const workouts = userData.workouts
@@ -91,19 +90,25 @@ async function addWorkout(user, workoutName, workoutQuantity, workoutMonth, work
 }
 
 async function dropWorkout(user, workoutName, workoutQuantity, workoutMonth, workoutDay, workoutYear) {
-    console.log("dropWorkout model called")
     const db = await collection()
     await getUser(user).then((userData) => {
         const workouts = userData.workouts
-        const i = workouts.indexOf({
-            "name": workoutName
-            ,"quantity": workoutQuantity
-            ,"month": workoutMonth
-            ,"day": workoutDay
-            ,"year": workoutYear
-        })
-        console.log("workout: " + i)
-        if (i >= 0) {
+        let i = -1;
+        let found = false;
+        while (i < workouts.length && !found) {
+            i++;
+            const curr = workouts[i]
+            if (curr.name == workoutName &&
+                curr.quantity == workoutQuantity &&
+                curr.month == workoutMonth &&
+                curr.day == workoutDay &&
+                curr.year == workoutYear) {
+
+                found = true;
+            }
+        }
+        console.log('found: ' + found + " i: "+ i)
+        if (found) {
             workouts.splice(i)
             db.findOneAndReplace({name: user}, {
                 "name": userData.name
@@ -111,6 +116,19 @@ async function dropWorkout(user, workoutName, workoutQuantity, workoutMonth, wor
                 ,"workouts": workouts
             })
         }
+    })
+}
+
+async function dropWorkoutAtIndex(user, i) {
+    const db = await collection()
+    await getUser(user).then((userData) => {
+        const workouts = userData.workouts
+        workouts.splice(i)
+        db.findOneAndReplace({name: user}, {
+            "name": userData.name
+            ,"admin": userData.admin
+            ,"workouts": workouts
+        })
     })
 }
 
@@ -131,4 +149,5 @@ module.exports = {
     ,seedUsers
     ,addWorkout
     ,dropWorkout
+    ,dropWorkoutAtIndex
 }

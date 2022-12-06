@@ -1,5 +1,5 @@
 const express = require('express');
-const { addWorkout, dropWorkout } = require('../models/users');
+const { addWorkout, dropWorkout, dropWorkoutAtIndex } = require('../models/users');
 
 const app = express.Router();
 app
@@ -7,8 +7,10 @@ app
     res.send(addWorkout(req.params.userName, req.params.workoutName, req.params.workoutQuantity, req.params.workoutMonth, req.params.workoutDay, req.params.workoutYear));
 })
 .delete('/:userName/:workoutName/:workoutQuantity/:workoutMonth/:workoutDay/:workoutYear', (req, res) => {
-    console.log("delete in controller reached")
     res.send(dropWorkout(req.params.userName, req.params.workoutName, req.params.workoutQuantity, req.params.workoutMonth, req.params.workoutDay, req.params.workoutYear));
+})
+.delete('/:userName/:i', (req, res) => {
+    res.send(dropWorkoutAtIndex(req.params.userName, req.params.i));
 })
 
 module.exports = app
