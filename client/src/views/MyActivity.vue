@@ -20,7 +20,6 @@
 					found = true;
 				}
 			}
-			console.log('found: ' + found + " i: "+ i)
 			if (found) {
 				session.user.workouts.splice(i)
 				dropWorkoutAtIndex(session.user.name, i)

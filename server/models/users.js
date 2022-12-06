@@ -107,7 +107,6 @@ async function dropWorkout(user, workoutName, workoutQuantity, workoutMonth, wor
                 found = true;
             }
         }
-        console.log('found: ' + found + " i: "+ i)
         if (found) {
             workouts.splice(i)
             db.findOneAndReplace({name: user}, {
