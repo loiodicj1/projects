@@ -27,7 +27,6 @@ function makeNewWorkout() {
 async function generateDesc() {
 	const description = await createDesc(name.value);
 	desc.value = description;
-	return description;
 }
 </script>
 
