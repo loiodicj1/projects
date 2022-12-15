@@ -12,6 +12,10 @@ export function dropWorkout(user : string | undefined, newWorkout : Workout) {
     }
 }
 
+export function createDesc(name: string) {
+    return api<string>(`workouts/${name}`, {}, 'GET')
+}
+
 export function dropWorkoutAtIndex(user : string | undefined, i : number) {
     if (user != null) {
         api(`workouts/${user}/${i}`, {}, 'DELETE');
@@ -20,6 +24,7 @@ export function dropWorkoutAtIndex(user : string | undefined, i : number) {
 
 export interface Workout {
     user?: string;
+    desc?: string;
     name: string;
     quantity: number;
     month: number;
